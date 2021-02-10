@@ -420,6 +420,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
          String address = txtaddress.getText();
         
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+        Date txtdob = new Date();
         String date = da.format(txtdob.getDate());
         String Gender;
         
@@ -542,7 +543,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                   txtpassport.setText(passport.trim());
                   txtaddress.setText(address.trim());
                   txtcontact.setText(contact.trim());
-                  txtdob.setDate(date1);
+                  //txtdob.setDate(date1);
                   txtphoto.setIcon(newImage);
               
                   

@@ -307,7 +307,7 @@ public class addflight extends javax.swing.JInternalFrame {
             pst.executeUpdate();
             
             
-            JOptionPane.showMessageDialog(null,"Flight Createdd.........");
+            JOptionPane.showMessageDialog(null,"Flight Created.........");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

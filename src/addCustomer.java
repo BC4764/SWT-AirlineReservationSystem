@@ -1,6 +1,7 @@
 
 
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -434,8 +435,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-        String id = txtid.getText();
+      com.toedter.calendar.JDateChooser txtdob = new JDateChooser();
+      String id = txtid.getText();
          String firstname = txtfirstname.getText();
          String lastname = txtlastname.getText();
          String nic = txtnic.getText(); 
@@ -443,8 +444,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
          String address = txtaddress.getText();
         
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-        Date txtdob = new Date();
-        String date = da.format(txtdob);
+        String date = da.format(txtdob.getDate());
         String Gender;
         
         if(r1.isSelected())
@@ -476,7 +476,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
             pst.executeUpdate();
             
             
-            JOptionPane.showMessageDialog(null,"Registration Created.........");
+            JOptionPane.showMessageDialog(null,"Registation Createdd.........");
             
             
         } catch (ClassNotFoundException ex) {

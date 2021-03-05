@@ -475,7 +475,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
       pst.setBytes(10, userimage);
       pst.executeUpdate();
 
-//small fix on typo underneath 
+//small fix on typo underneath
       JOptionPane.showMessageDialog(null,"Registration Created.");
 
 

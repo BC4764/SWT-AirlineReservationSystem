@@ -608,7 +608,7 @@ public class ticket extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_txtseatsStateChanged
-
+//parameter not in use CHECK
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         

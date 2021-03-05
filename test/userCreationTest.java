@@ -19,4 +19,19 @@ class userCreationTest {
         expResult = "UO008";
         assertEquals(expResult, inputTest.getText());
     }
+
+    @Test
+    void initComponents(){
+      userCreation userOb;
+      javax.swing.JLabel inputTest;
+      String expResult;
+
+      userOb = new userCreation();
+      userOb.setVisible(true);
+
+      inputTest = (JLabel) TestUtils.getChildNamed(userOb, "userID");
+
+      expResult = "UO008";
+      assertEquals(expResult, inputTest.getText());
+    }
 }

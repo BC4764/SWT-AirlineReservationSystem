@@ -33,6 +33,7 @@ public class ticket extends javax.swing.JInternalFrame {
     public ticket() {
         initComponents();
         autoID();
+        setComponentNames();
     }
 
     Connection con;
@@ -673,6 +674,10 @@ public class ticket extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+
+    private void setComponentNames() {
+        txtticketno.setName("ticketNo");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel flightname;

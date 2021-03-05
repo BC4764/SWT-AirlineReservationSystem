@@ -5,6 +5,5 @@ class addCustomerTest {
 
   @Test
   void autoID() {
-
   }
 }

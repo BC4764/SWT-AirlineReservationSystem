@@ -46,15 +46,4 @@ class userCreationTest {
 
     }
 
-    @Test
-    void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-
-        String expID;
-        String expUser;
-        String expFirstName;
-        String expLastName;
-        String expUserName;
-
-
-    }
 }

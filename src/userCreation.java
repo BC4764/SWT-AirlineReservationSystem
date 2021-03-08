@@ -20,6 +20,8 @@ import javax.swing.JOptionPane;
 
 public class userCreation extends javax.swing.JInternalFrame {
 
+
+
     /**
      * Creates new form userCreation
      */

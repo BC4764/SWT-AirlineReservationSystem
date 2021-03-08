@@ -1,9 +1,16 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
 import javax.swing.JLabel;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 class userCreationTest {
+    Connection con;
+    Statement statement;
+    PreparedStatement pst;
 
     @Test
     void autoID() {
@@ -18,20 +25,36 @@ class userCreationTest {
 
         expResult = "UO008";
         assertEquals(expResult, inputTest.getText());
+
+
     }
 
     @Test
-    void initComponents(){
-      userCreation userOb;
-      javax.swing.JLabel inputTest;
-      String expResult;
+    void initComponents() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
+            statement = con.createStatement();
+            ResultSet rs = statement.executeQuery("select MAX(firstname) from user");
+            rs.next();
+            System.out.println("Firstname: " + rs.getString("MAX(firstname)"));
 
-      userOb = new userCreation();
-      userOb.setVisible(true);
 
-      inputTest = (JLabel) TestUtils.getChildNamed(userOb, "userID");
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-      expResult = "UO008";
-      assertEquals(expResult, inputTest.getText());
+    }
+
+    @Test
+    void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+
+        String expID;
+        String expUser;
+        String expFirstName;
+        String expLastName;
+        String expUserName;
+
+
     }
 }

@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 class userCreationTest {
     Connection con;
     Statement statement;
-    PreparedStatement pst;
+    ResultSet rs;
 
     @Test
     void autoID() {
@@ -23,7 +23,7 @@ class userCreationTest {
 
         inputTest = (JLabel) TestUtils.getChildNamed(userOb, "userID");
 
-        expResult = "UO008";
+        expResult = "UO009";
         assertEquals(expResult, inputTest.getText());
 
 
@@ -35,13 +35,14 @@ class userCreationTest {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
             statement = con.createStatement();
-            ResultSet rs = statement.executeQuery("select MAX(firstname) from user");
-            rs.next();
-            System.out.println("Firstname: " + rs.getString("MAX(firstname)"));
-
-
+            rs = statement.executeQuery("select firstname from user");
+            while (rs.next()) {
+                if(rs == null) {
+                    System.out.println("Firstname: " + rs.getString("firstname"));
+                }
+            }
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(userCreation.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

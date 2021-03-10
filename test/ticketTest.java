@@ -1,8 +1,14 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -10,6 +16,9 @@ import javax.swing.table.DefaultTableModel;
 import org.junit.jupiter.api.Test;
 
 class ticketTest {
+
+  Connection con;
+  PreparedStatement pst;
 
   @Test
   void autoID() {
@@ -20,7 +29,7 @@ class ticketTest {
     ticketOb = new ticket();
     ticketOb.setVisible(true);
 
-    inputTest = (JLabel)TestUtils.getChildNamed(ticketOb, "ticketNo");
+    inputTest = (JLabel) TestUtils.getChildNamed(ticketOb, "ticketNo");
 
     expResult = "TO004";
     assertEquals(expResult, inputTest.getText());
@@ -38,16 +47,16 @@ class ticketTest {
     String testResult;
     String expResult;
 
-    String[] sources = new String[] { "India", "Srilanka", "Uk", "Usa", "Canada", "China" };
-    String[] departs = new String[] { "India\t", "Srilanka", "Uk", "Usa", "Canada", "China" };
+    String[] sources = new String[]{"India", "Srilanka", "Uk", "Usa", "Canada", "China"};
+    String[] departs = new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "China"};
 
     ticketOb.setVisible(true);
 
-    buttonToClick = (JButton)TestUtils.getChildNamed(ticketOb, "searchTicket");
-    flightDepart = (JComboBox<String>)TestUtils.getChildNamed(ticketOb, "flightDepart");
-    flightSource = (JComboBox<String>)TestUtils.getChildNamed(ticketOb, "flightSource");
-    flightTable  = (JTable)TestUtils.getChildNamed(ticketOb, "flightTable");
-    DefaultTableModel Df = (DefaultTableModel)flightTable.getModel();
+    buttonToClick = (JButton) TestUtils.getChildNamed(ticketOb, "searchTicket");
+    flightDepart = (JComboBox<String>) TestUtils.getChildNamed(ticketOb, "flightDepart");
+    flightSource = (JComboBox<String>) TestUtils.getChildNamed(ticketOb, "flightSource");
+    flightTable = (JTable) TestUtils.getChildNamed(ticketOb, "flightTable");
+    DefaultTableModel Df = (DefaultTableModel) flightTable.getModel();
 
     flightSource.setSelectedItem(sources[0]); // India
     flightDepart.setSelectedItem(departs[2]); // UK
@@ -69,14 +78,15 @@ class ticketTest {
     flightDepart.setSelectedItem(departs[1]); // Srilanka
     buttonToClick.doClick();
 
-    Df = (DefaultTableModel)flightTable.getModel();
+    Df = (DefaultTableModel) flightTable.getModel();
     testResult = Df.getValueAt(0, 0).toString();
     expResult = "FO003";
     assertEquals(expResult, testResult);
   }
 
-  @Test // Currently unfinished
-  void testTicketBook() {
+  @Test
+    // Positive Testing for booking a ticket.
+  void testTicketBook() throws ClassNotFoundException {
     ticket ticketOb = new ticket();
     JLabel ticketNo;
     JButton searchFlight;
@@ -93,29 +103,29 @@ class ticketTest {
     JLabel flightDept;
     JTextField flightPrice;
     JSpinner flightSeats;
-    String testResult;
+    String testTicketResult;
     String expResult;
 
     DefaultTableModel Df;
 
-    String[] sources = new String[] { "India", "Srilanka", "Uk", "Usa", "Canada", "China" };
-    String[] departs = new String[] { "India\t", "Srilanka", "Uk", "Usa", "Canada", "China" };
+    String[] sources = new String[]{"India", "Srilanka", "Uk", "Usa", "Canada", "China"};
+    String[] departs = new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "China"};
 
     ticketOb.setVisible(true);
 
-    ticketNo = (JLabel)TestUtils.getChildNamed(ticketOb, "ticketNo");
-    customerID = (JTextField)TestUtils.getChildNamed(ticketOb, "customerID");
-    searchFlight = (JButton)TestUtils.getChildNamed(ticketOb, "searchTicket");
-    searchCust = (JButton)TestUtils.getChildNamed(ticketOb, "searchCust");
-    bookTicket = (JButton)TestUtils.getChildNamed(ticketOb, "bookTicket");
-    flightDepart = (JComboBox<String>)TestUtils.getChildNamed(ticketOb, "flightDepart");
-    flightSource = (JComboBox<String>)TestUtils.getChildNamed(ticketOb, "flightSource");
-    flightTable  = (JTable)TestUtils.getChildNamed(ticketOb, "flightTable");
-    flightNo = (JLabel)TestUtils.getChildNamed(ticketOb, "flightNo");
-    flightName = (JLabel)TestUtils.getChildNamed(ticketOb, "flightName");
-    flightDept = (JLabel)TestUtils.getChildNamed(ticketOb, "flightDept");
-    flightPrice = (JTextField)TestUtils.getChildNamed(ticketOb, "ticketPrice");
-    flightSeats = (JSpinner)TestUtils.getChildNamed(ticketOb, "ticketSeats");
+    ticketNo = (JLabel) TestUtils.getChildNamed(ticketOb, "ticketNo");
+    customerID = (JTextField) TestUtils.getChildNamed(ticketOb, "customerID");
+    searchFlight = (JButton) TestUtils.getChildNamed(ticketOb, "searchTicket");
+    searchCust = (JButton) TestUtils.getChildNamed(ticketOb, "searchCust");
+    bookTicket = (JButton) TestUtils.getChildNamed(ticketOb, "bookTicket");
+    flightDepart = (JComboBox<String>) TestUtils.getChildNamed(ticketOb, "flightDepart");
+    flightSource = (JComboBox<String>) TestUtils.getChildNamed(ticketOb, "flightSource");
+    flightTable = (JTable) TestUtils.getChildNamed(ticketOb, "flightTable");
+    flightNo = (JLabel) TestUtils.getChildNamed(ticketOb, "flightNo");
+    flightName = (JLabel) TestUtils.getChildNamed(ticketOb, "flightName");
+    flightDept = (JLabel) TestUtils.getChildNamed(ticketOb, "flightDept");
+    flightPrice = (JTextField) TestUtils.getChildNamed(ticketOb, "ticketPrice");
+    flightSeats = (JSpinner) TestUtils.getChildNamed(ticketOb, "ticketSeats");
 
     // Save ticket ID
     ticketID = ticketNo.getText();
@@ -130,13 +140,32 @@ class ticketTest {
     searchFlight.doClick();
 
     // Set Seats
-    Df = (DefaultTableModel)flightTable.getModel();
+    Df = (DefaultTableModel) flightTable.getModel();
     flightNo.setText(Df.getValueAt(0, 0).toString());
     flightName.setText(Df.getValueAt(0, 1).toString());
     flightDept.setText(Df.getValueAt(0, 5).toString());
-    flightPrice.setText(Df.getValueAt(0, 0).toString());
+    flightPrice.setText(Df.getValueAt(0, 7).toString());
     flightSeats.setValue(2);
 
     bookTicket.doClick(); // book ticket
+
+    try {
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
+      pst = con.prepareStatement("select * from ticket where id = ?");
+      pst.setString(1, ticketID);
+      ResultSet rs = pst.executeQuery();
+
+      String pulledFlight = rs.getString("flightid");
+      String pulledCust = rs.getString("custid");
+      String pulledPrice = rs.getString("price");
+
+      assertEquals(flightNo.getText(), pulledFlight);
+      assertEquals(customerID.getText(), pulledCust);
+      assertEquals(flightPrice.getText(), pulledPrice);
+
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
   }
 }

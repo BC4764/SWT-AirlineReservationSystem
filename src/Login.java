@@ -22,6 +22,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setComponentNames();
     }
 
     Connection con;
@@ -122,7 +123,7 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
         String username = txtuser.getText();
@@ -170,7 +171,10 @@ public class Login extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    private void setComponentNames(){
+        txtpass.setName("txtpass");
+        txtuser.setName("txtuser");
+    }
     /**
      * @param args the command line arguments
      */

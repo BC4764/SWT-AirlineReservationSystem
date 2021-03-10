@@ -41,7 +41,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
      */
     public searchCustomer() {
         initComponents();
-
+        setComponentNames();
     }
 
     Connection con;
@@ -508,7 +508,13 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
-
+    private void setComponentNames() {
+        txtcustid.setName("customerID");
+        jButton4.setName("searchCust");
+        jButton2.setName("updateCust");
+        txtpassport.setName("passportID");
+        txtphoto.setName("photoLabel");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

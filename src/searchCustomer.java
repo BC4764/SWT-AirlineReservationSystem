@@ -439,7 +439,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
 
         String id = txtcustid.getText();
@@ -542,5 +542,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtnic;
     private javax.swing.JTextField txtpassport;
     private javax.swing.JLabel txtphoto;
-    // End of variables declaration//GEN-END:variables
+
+  public void updateCustomer(Customer customer) {
+  }
+  // End of variables declaration//GEN-END:variables
 }

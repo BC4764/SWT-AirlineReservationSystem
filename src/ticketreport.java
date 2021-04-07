@@ -25,7 +25,6 @@ public class ticketreport extends javax.swing.JInternalFrame {
     public ticketreport() {
         initComponents();
         LoadData();
-        setComponentName();
     }
 Connection con;
 PreparedStatement pst;
@@ -155,9 +154,7 @@ PreparedStatement pst;
     
     
     
-    public void setComponentName() {
-      jTable1.setName("ticketReportTab");
-    }
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

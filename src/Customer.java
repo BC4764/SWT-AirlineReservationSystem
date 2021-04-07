@@ -4,8 +4,8 @@ public class Customer {
 
   private String firstName;
   private String lastName;
-  private String id;
-  private String nic;
+  private String ID;
+  private String NIC;
   private String passport;
   private String address;
   private String dob;
@@ -17,8 +17,8 @@ public class Customer {
   public Customer(
       String firstName,
       String lastName,
-      String id,
-      String nic,
+      String ID,
+      String NIC,
       String passport,
       String address,
       String dob,
@@ -26,8 +26,8 @@ public class Customer {
       String contact) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.id = id;
-    this.nic = nic;
+    this.ID = ID;
+    this.NIC = NIC;
     this.passport = passport;
     this.address = address;
     this.dob = dob;
@@ -59,20 +59,20 @@ public class Customer {
     this.lastName = lastName;
   }
 
-  public String getId() {
-    return id;
+  public String getID() {
+    return ID;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setID(String ID) {
+    this.ID = ID;
   }
 
-  public String getNic() {
-    return nic;
+  public String getNIC() {
+    return NIC;
   }
 
-  public void setNic(String nic) {
-    this.nic = nic;
+  public void setNIC(String NIC) {
+    this.NIC = NIC;
   }
 
   public String getPassport() {

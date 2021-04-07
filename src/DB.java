@@ -9,7 +9,7 @@ public class DB {
   private static final String DB_URL = "jdbc:mysql://localhost/airline";
 
   private static final String USER = "root";
-  private static final String PASS = " ";
+  private static final String PASS = "";
 
   Connection conn;
 

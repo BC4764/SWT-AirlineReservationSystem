@@ -529,5 +529,35 @@ public class addCustomer extends javax.swing.JInternalFrame {
   private javax.swing.JTextField txtnic;
   private javax.swing.JTextField txtpassport;
   private javax.swing.JLabel txtphoto;
+  private final com.toedter.calendar.JDateChooser txtDOB = new com.toedter.calendar.JDateChooser();
+
+  Customer getCustomerInformation() {
+
+    Customer sampleCustomer = new Customer("","","","","","","","","");
+
+    sampleCustomer.setID(txtid.getText());
+    sampleCustomer.setFirstName(txtfirstname.getText());
+    sampleCustomer.setLastName(txtlastname.getText());
+    sampleCustomer.setNIC(txtnic.getText());
+    sampleCustomer.setPassport(txtpassport.getText());
+    sampleCustomer.setAddress(txtaddress.getText());
+
+    System.out.println(sampleCustomer.getFirstName());
+
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    sampleCustomer.setDob(dateFormat.format(txtDOB.getDate()));
+    System.out.println(sampleCustomer.getDob());
+    String gender;
+
+    if (r1.isSelected()) {
+      gender = "male";
+    } else {
+      gender = "female";
+    }
+    sampleCustomer.setGender(gender);
+    sampleCustomer.setContact(txtcontact.getText());
+
+    return sampleCustomer;
+  }
   // End of variables declaration//GEN-END:variables
 }

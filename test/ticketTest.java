@@ -31,7 +31,7 @@ class ticketTest {
 
     inputTest = (JLabel) TestUtils.getChildNamed(ticketOb, "ticketNo");
 
-    expResult = "TO004";
+    expResult = "TO006";
     assertEquals(expResult, inputTest.getText());
   }
 
@@ -86,7 +86,7 @@ class ticketTest {
 
   @Test
     // Positive Testing for booking a ticket.
-  void testTicketBook() throws ClassNotFoundException {
+  public void testTicketBook() throws ClassNotFoundException {
     ticket ticketOb = new ticket();
     JLabel ticketNo;
     JButton searchFlight;

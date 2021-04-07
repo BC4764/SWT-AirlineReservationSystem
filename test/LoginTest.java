@@ -30,7 +30,7 @@ class LoginTest {
     testUsername = (JTextField) TestUtils.getChildNamed(loginTest, "txtuser");
     testPassword = (JPasswordField) TestUtils.getChildNamed(loginTest, "txtpass");
     testUsername.setText("rjumar");
-    testPassword.setText("123");
+    testPassword.setText("invalid");
 
     String username = testUsername.getText();
     String password = testPassword.getText();
@@ -44,7 +44,7 @@ class LoginTest {
 
       ResultSet rs;
       rs = pst.executeQuery();
-      assertTrue(rs.next());
+      assertFalse(rs.next());
     } catch (ClassNotFoundException ex) {
       Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {

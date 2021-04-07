@@ -1,5 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.JLabel;
@@ -47,6 +50,35 @@ class userCreationTest {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(userCreation.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+
+    @Test
+    void negativeUserCreation() {
+        userCreation userCreation = new userCreation();
+        JButton insertUser = (JButton)TestUtils.getChildNamed(userCreation, "insertUser");
+        JTextField firstName = (JTextField)TestUtils.getChildNamed(userCreation, "firstName");
+        JTextField lastName = (JTextField)TestUtils.getChildNamed(userCreation, "lastName");
+        JTextField userName = (JTextField)TestUtils.getChildNamed(userCreation, "userName");
+        JPasswordField passWord = (JPasswordField)TestUtils.getChildNamed(userCreation, "passWord");
+
+        String validFirst = "firstname";
+        String validLast = "lastname";
+        String validUsername = "username";
+        String validPassword = "password";
+
+        String invalidFirst = "";
+        String invalidLast = "";
+        String invalidUser = "";
+        String invalidPass = "";
+
+        // Test Case 1 - Should fail
+
+        // Test Case 2 - Should fail
+        // Test Case 3 - Should fail
+        // Test Case 4 - Should fail
+        // Test Case 5 - Should fail
+
 
     }
 

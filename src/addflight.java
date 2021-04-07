@@ -271,7 +271,7 @@ public class addflight extends javax.swing.JInternalFrame {
     
     
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
            String id = txtflightid.getText();
@@ -327,6 +327,17 @@ public class addflight extends javax.swing.JInternalFrame {
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+
+    void setComponentNames() {
+        txtflightid.setName("flightId");
+        txtflightname.setName("flightName");
+        txtsource.setName("locSource");
+        txtdepart.setName("locDepart");
+        txtdate.setName("flightDate");
+        txtdtime.setName("departTime");
+        txtarrtime.setName("arrivalTime");
+        txtflightcharge.setName("flightCost");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

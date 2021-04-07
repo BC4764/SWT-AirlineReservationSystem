@@ -246,6 +246,7 @@ public class userCreation extends javax.swing.JInternalFrame {
         txtfirstname.setName("firstName");
         txtlastname.setName("lastName");
         txtpassword.setName("passWord");
+        jButton1.setName("insertUser");
     }
 
 

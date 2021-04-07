@@ -41,9 +41,12 @@ public class searchCustomer extends javax.swing.JInternalFrame {
      */
     public searchCustomer() {
         initComponents();
-        setComponentNames();
-    }
 
+    }
+    private Connection connection;
+    private PreparedStatement preparedStatement;
+    private Customer customer;
+    private final DB database = new DB();
     Connection con;
     PreparedStatement pst;
 
@@ -432,6 +435,34 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
+    void updateCustomer(Customer customer) {
+        try {
+
+            boolean isWorkingDatabase = database.initializeDatabase();
+
+            preparedStatement = database.setSQLQuery("UPDATE CUSTOMER SET firstName = ?, lastName = ?, NIC = ?, passport = ?, address= ?, DOB = ?, gender = ?, contact = ? WHERE ID = ?");
+
+            preparedStatement.setString(1, customer.getFirstName());
+            preparedStatement.setString(2, customer.getLastName());
+            preparedStatement.setString(3, customer.getNIC());
+            preparedStatement.setString(4, customer.getPassport());
+            preparedStatement.setString(5, customer.getAddress());
+            preparedStatement.setString(6, customer.getDob());
+            preparedStatement.setString(7, customer.getGender());
+            preparedStatement.setString(8, customer.getContact());
+            preparedStatement.setString(9, customer.getID());
+            int validID = database.executePreparedStatementUpdate(preparedStatement);
+
+            if (validID == 0 || !isWorkingDatabase) {
+                JOptionPane.showMessageDialog(null, "Enter a Valid Customer ID.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Registration Updated");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -508,13 +539,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void setComponentNames() {
-        txtcustid.setName("customerID");
-        jButton4.setName("searchCust");
-        jButton2.setName("updateCust");
-        txtpassport.setName("passportID");
-        txtphoto.setName("photoLabel");
-    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -543,7 +568,5 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtpassport;
     private javax.swing.JLabel txtphoto;
 
-  public void updateCustomer(Customer customer) {
-  }
-  // End of variables declaration//GEN-END:variables
+    // End of variables declaration//GEN-END:variables
 }

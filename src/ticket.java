@@ -33,7 +33,6 @@ public class ticket extends javax.swing.JInternalFrame {
     public ticket() {
         initComponents();
         autoID();
-        setComponentNames();
     }
 
     Connection con;
@@ -87,9 +86,9 @@ public class ticket extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select Country", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        txtsource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "India", "Srilanka", "Uk", "Usa", "Canada", "China" }));
+        txtsource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "India", "Srilanka", "Uk", "Usa", "Canada", "Chinna" }));
 
-        txtdepart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "India\t", "Srilanka", "Uk", "Usa", "Canada", "China" }));
+        txtdepart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "India\t", "Srilanka", "Uk", "Usa", "Canada", "Chinna" }));
 
         jLabel1.setText("Source");
 
@@ -674,24 +673,6 @@ public class ticket extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-
-    private void setComponentNames() {
-        txtticketno.setName("ticketNo");
-        jButton1.setName("bookTicket");
-        jButton2.setName("closeTicket");
-        jButton3.setName("searchTicket");
-        jButton4.setName("searchCust");
-        txtsource.setName("flightSource");
-        txtdepart.setName("flightDepart");
-        jTable1.setName("flightTable");
-        flightno.setName("flightNo");
-        txtcustid.setName("customerID");
-        txtclass.setName("ticketClass");
-        txtprice.setName("ticketPrice");
-        txtseats.setName("ticketSeats");
-        flightname.setName("flightName");
-        txtdept.setName("flightDept");
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel flightname;

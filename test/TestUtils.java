@@ -39,17 +39,17 @@ public class TestUtils {
       // Loop through and get index of that child
       for (int i = 0; i < children.length; ++i) {
         if (children[i] instanceof Window &&
-          !((Window) children[i]).isActive()) {continue;}
+            !((Window) children[i]).isActive()) {continue;}
         Component child = getChildIndexedInternal(
             children[i], name, index);
         // if there is a child return it
         if (child != null) { return child; }
-        }
       }
-    return null;
     }
+    return null;
+  }
 
-    // Helps check child component based on internal count
+  // Helps check child component based on internal count
   public static Component getChildIndexedInternal(Component parent, String name, int index) {
     // Use name and index to ge the internal indexed component
     if (parent.getClass().toString().endsWith(name)) {

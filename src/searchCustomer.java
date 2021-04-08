@@ -435,7 +435,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
-    void updateCustomer(Customer customer) {
+    void MockCustomer(Customer customer) {
         try {
 
             boolean isWorkingDatabase = database.initializeDatabase();

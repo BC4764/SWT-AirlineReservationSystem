@@ -19,14 +19,14 @@ public class MockDB {
   }
 
   @Test
-  public void testUpdateCustomer() throws SQLException {
-    Customer customer = new Customer("CS001", "John", "Alex", "34232222", "3443", "Uk",
-        "1996-06-01", "Male", "1234567890");
+  public void testMockCustomer() throws SQLException {
+    Customer customer = new Customer("CS001", "Carol", "Bado", "3545433", "2342", "Uk",
+        "1999-12-15", "Female", "3238984545");
 
     when(mockDatabase.initializeDatabase()).thenReturn(true);
     when(mockDatabase.setSQLQuery("")).thenReturn(preparedStatement);
     when(mockDatabase.executePreparedStatementUpdate(preparedStatement)).thenReturn(1);
 
-    searchCustomer.updateCustomer(customer);
+    searchCustomer.MockCustomer(customer);
   }
 }

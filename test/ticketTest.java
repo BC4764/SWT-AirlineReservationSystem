@@ -5,10 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -24,14 +26,39 @@ class ticketTest {
   void autoID() {
     ticket ticketOb;
     JLabel inputTest;
-    String expResult;
+    String expResult = null;
 
     ticketOb = new ticket();
     ticketOb.setVisible(true);
 
     inputTest = (JLabel) TestUtils.getChildNamed(ticketOb, "ticketNo");
 
-    expResult = "TO006";
+    try {
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      Statement s = con.createStatement();
+      ResultSet rs = s.executeQuery("select MAX(id) from ticket");
+      rs.next();
+      rs.getString("MAX(id)");
+      if(rs.getString("MAX(id)") == null)
+      {
+        expResult = "TO001";
+      }
+      else
+      {
+        long id = Long.parseLong(rs.getString("MAX(id)").substring(2,rs.getString("MAX(id)").length()));
+        id++;
+        expResult = "TO" + String.format("%03d", id);
+
+
+      }
+
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (SQLException ex) {
+      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
     assertEquals(expResult, inputTest.getText());
   }
 
@@ -167,5 +194,20 @@ class ticketTest {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
+  }
+
+  @Test
+  void invalidCust() {
+    ticket ticketOb = new ticket();
+    JButton searchCust;
+    JTextField customerID;
+
+    customerID = (JTextField) TestUtils.getChildNamed(ticketOb, "customerID");
+    searchCust = (JButton) TestUtils.getChildNamed(ticketOb, "searchCust");
+
+
+    // Set customer
+    customerID.setText("invalid");
+    assertDoesNotThrow(() -> searchCust.doClick());
   }
 }

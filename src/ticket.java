@@ -692,6 +692,7 @@ public class ticket extends javax.swing.JInternalFrame {
         txtdept.setName("flightDept");
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel flightname;
     private javax.swing.JLabel flightno;

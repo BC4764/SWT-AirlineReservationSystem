@@ -19,16 +19,39 @@ class userCreationTest {
     void autoID() {
         userCreation userOb;
         javax.swing.JLabel inputTest;
-        String expResult;
+        String expResult = null;
 
         userOb = new userCreation();
         userOb.setVisible(true);
 
         inputTest = (JLabel) TestUtils.getChildNamed(userOb, "userID");
 
-        expResult = "UO009";
-        assertEquals(expResult, inputTest.getText());
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("select MAX(id) from user");
+            rs.next();
+            rs.getString("MAX(id)");
+            if(rs.getString("MAX(id)") == null)
+            {
+                expResult = "UO001";
+            }
+            else
+            {
+                long id = Long.parseLong(rs.getString("MAX(id)").substring(2,rs.getString("MAX(id)").length()));
+                id++;
+                expResult = "UO" + String.format("%03d", id);
 
+
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        assertEquals(expResult, inputTest.getText());
 
     }
 
@@ -54,7 +77,7 @@ class userCreationTest {
     }
 
     @Test
-    void negativeUserCreation() {
+    void testUserCreation() {
         userCreation userCreation = new userCreation();
         JButton insertUser = (JButton)TestUtils.getChildNamed(userCreation, "insertUser");
         JTextField firstName = (JTextField)TestUtils.getChildNamed(userCreation, "firstName");

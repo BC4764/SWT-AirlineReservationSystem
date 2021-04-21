@@ -28,27 +28,37 @@ class searchCustomerTest {
     searchCustomer searchCustomer = new searchCustomer();
     JTextField customerID;
     JButton searchCust;
-    JTextField passportID;
     JLabel photoLabel;
-    String testResult;
-    String expResult;
 
     searchCustomer.setVisible(true);
 
     customerID = (JTextField)TestUtils.getChildNamed(searchCustomer, "customerID");
     searchCust = (JButton)TestUtils.getChildNamed(searchCustomer, "searchCust");
-    passportID = (JTextField)TestUtils.getChildNamed(searchCustomer, "passportID");
     photoLabel = (JLabel)TestUtils.getChildNamed(searchCustomer, "photoLabel");
 
-    searchCustomer.remove(photoLabel);
+    photoLabel.setIcon(null);
 
-    customerID.setText("CS001"); // john Alex - passport id: 3443
-    searchCust.doClick();
+    customerID.setText("CS001"); // john Alex
+    assertDoesNotThrow(() -> searchCust.doClick());
+  }
 
-    testResult = passportID.getText();
-    expResult = "3443";
+  @Test
+  void testSearchInvalidCustomer () {
+    searchCustomer searchCustomer = new searchCustomer();
+    JTextField customerID;
+    JButton searchCust;
+    JLabel photoLabel;
 
-    assertEquals(expResult, testResult);
+    searchCustomer.setVisible(true);
+
+    customerID = (JTextField)TestUtils.getChildNamed(searchCustomer, "customerID");
+    searchCust = (JButton)TestUtils.getChildNamed(searchCustomer, "searchCust");
+    photoLabel = (JLabel)TestUtils.getChildNamed(searchCustomer, "photoLabel");
+
+    photoLabel.setIcon(null);
+
+    customerID.setText("Invalid"); // Invalid
+    assertDoesNotThrow(() -> searchCust.doClick());
   }
 
   // Positive Testing for updating Customer

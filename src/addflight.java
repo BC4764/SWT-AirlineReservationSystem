@@ -26,6 +26,7 @@ public class addflight extends javax.swing.JInternalFrame {
     public addflight() {
         initComponents();
         autoID();
+        setComponentNames();
     }
     
      Connection con;
@@ -326,6 +327,20 @@ public class addflight extends javax.swing.JInternalFrame {
         
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+
+    void setComponentNames() {
+        txtflightid.setName("flightId");
+        txtflightname.setName("flightName");
+        txtsource.setName("locSource");
+        txtdepart.setName("locDepart");
+        txtdate.setName("flightDate");
+        txtdtime.setName("departTime");
+        txtarrtime.setName("arrivalTime");
+        txtflightcharge.setName("flightCost");
+        jButton2.setName("cancel");
+        jButton1.setName("add");
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

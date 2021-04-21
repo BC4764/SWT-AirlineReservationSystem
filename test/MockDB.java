@@ -1,5 +1,5 @@
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.mock;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

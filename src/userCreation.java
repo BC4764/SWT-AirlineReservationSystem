@@ -26,6 +26,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     public userCreation() {
         initComponents();
         autoID();
+        setComponentNames();
     }
     Connection con;
     PreparedStatement pst;
@@ -256,21 +257,16 @@ public class userCreation extends javax.swing.JInternalFrame {
     
     
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    private void setComponentNames() {
+        txtuserid.setName("userID");
+        txtusername.setName("userName");
+        txtfirstname.setName("firstName");
+        txtlastname.setName("lastName");
+        txtpassword.setName("passWord");
+        jButton1.setName("insertUser");
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

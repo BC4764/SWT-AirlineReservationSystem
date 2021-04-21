@@ -1,10 +1,11 @@
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.mock;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class MockDB {
 

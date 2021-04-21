@@ -22,15 +22,37 @@ class userCreationTest {
     void autoID() {
         userCreation userOb;
         javax.swing.JLabel inputTest;
-        String expResult;
+        String expResult = null;
 
         userOb = new userCreation();
         userOb.setVisible(true);
 
         inputTest = (JLabel) TestUtils.getChildNamed(userOb, "userID");
 
-        expResult = "UO009";
-        assertNotEquals(expResult, inputTest.getText());
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("select MAX(id) from user");
+            rs.next();
+            rs.getString("MAX(id)");
+            if (rs.getString("MAX(id)") == null) {
+                expResult = "UO001";
+            } else {
+                long id = Long.parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
+                id++;
+                expResult = "UO" + String.format("%03d", id);
+
+
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        assertEquals(expResult, inputTest.getText());
 
     }
 
@@ -98,10 +120,10 @@ class userCreationTest {
             String pulledUserName = rs.getString("username");
             String pulledPassWord = rs.getString("password");
 
-            assertEquals(firstName.getText(),pulledFirstName);
-            assertEquals(lastName.getText(),pulledLastName);
-            assertEquals(userName.getText(),pulledUserName);
-            assertEquals(password.getText(),pulledPassWord);
+            assertEquals(firstName.getText(), pulledFirstName);
+            assertEquals(lastName.getText(), pulledLastName);
+            assertEquals(userName.getText(), pulledUserName);
+            assertEquals(password.getText(), pulledPassWord);
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }

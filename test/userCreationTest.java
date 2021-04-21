@@ -131,4 +131,16 @@ class userCreationTest {
 
     }
 
+    @Test
+    void cancelButtonTest(){
+
+        userCreation userOb = new userCreation();
+
+        JButton cancel = (JButton) TestUtils.getChildNamed(userOb, "cancel");
+
+        cancel.doClick();
+
+    }
+
+
 }

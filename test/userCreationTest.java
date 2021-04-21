@@ -91,6 +91,7 @@ class userCreationTest {
             pst = con.prepareStatement("select * from user where id = ?");
             pst.setString(1, tempUserID);
             ResultSet rs = pst.executeQuery();
+            rs.next();
 
             String pulledFirstName = rs.getString("firstname");
             String pulledLastName = rs.getString("lastname");
@@ -100,8 +101,7 @@ class userCreationTest {
             assertEquals(firstName.getText(),pulledFirstName);
             assertEquals(lastName.getText(),pulledLastName);
             assertEquals(userName.getText(),pulledUserName);
-            assertEquals(Arrays.toString(password.getPassword()),pulledPassWord);
-
+            assertEquals(password,pulledPassWord);
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }

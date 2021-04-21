@@ -101,7 +101,7 @@ class userCreationTest {
             assertEquals(firstName.getText(),pulledFirstName);
             assertEquals(lastName.getText(),pulledLastName);
             assertEquals(userName.getText(),pulledUserName);
-            assertEquals(password,pulledPassWord);
+            assertEquals(password.getText(),pulledPassWord);
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }

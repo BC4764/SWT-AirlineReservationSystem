@@ -1,73 +1,106 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
+import static org.junit.jupiter.api.Assertions.*;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
 import javax.swing.JTextField;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class searchCustomerTest {
+
   Connection con;
   PreparedStatement pst;
 
-  searchCustomerTest() {
-  }
-
+  // Positive Testing for searching Customer
+  // Test currently fails due to issues related to the image on the page.
   @Test
-  void testSearchCustomer() {
+  void testSearchCustomer () {
     searchCustomer searchCustomer = new searchCustomer();
+    JTextField customerID;
+    JButton searchCust;
+    JTextField passportID;
+    JLabel photoLabel;
+    String testResult;
+    String expResult;
+
     searchCustomer.setVisible(true);
-    JTextField customerID = (JTextField)TestUtils.getChildNamed(searchCustomer, "customerID");
-    JButton searchCust = (JButton)TestUtils.getChildNamed(searchCustomer, "searchCust");
-    JTextField passportID = (JTextField)TestUtils.getChildNamed(searchCustomer, "passportID");
-    JLabel photoLabel = (JLabel)TestUtils.getChildNamed(searchCustomer, "photoLabel");
+
+    customerID = (JTextField)TestUtils.getChildNamed(searchCustomer, "customerID");
+    searchCust = (JButton)TestUtils.getChildNamed(searchCustomer, "searchCust");
+    passportID = (JTextField)TestUtils.getChildNamed(searchCustomer, "passportID");
+    photoLabel = (JLabel)TestUtils.getChildNamed(searchCustomer, "photoLabel");
+
     searchCustomer.remove(photoLabel);
-    customerID.setText("CS001");
+
+    customerID.setText("CS001"); // john Alex - passport id: 3443
     searchCust.doClick();
-    String testResult = passportID.getText();
-    String expResult = "3443";
-    Assertions.assertEquals(expResult, testResult);
+
+    testResult = passportID.getText();
+    expResult = "3443";
+
+    assertEquals(expResult, testResult);
   }
 
+  // Positive Testing for updating Customer
+  // Test currently fails due to issues related to the image on the page.
   @Test
   void testUpdateCustomer() throws ClassNotFoundException {
     searchCustomer searchCustomer = new searchCustomer();
-    String testResult = "0";
+    JTextField customerID;
+    JButton searchCust;
+    JButton updateCust;
+    JTextField passportID;
+    String testResult  = "0";
+    String expResult;
     String testString = "4751231314";
+    String originalPID;
+
     searchCustomer.setVisible(true);
-    JTextField customerID = (JTextField)TestUtils.getChildNamed(searchCustomer, "customerID");
-    JButton searchCust = (JButton)TestUtils.getChildNamed(searchCustomer, "searchCust");
-    JTextField passportID = (JTextField)TestUtils.getChildNamed(searchCustomer, "passportID");
-    JButton updateCust = (JButton)TestUtils.getChildNamed(searchCustomer, "updateCust");
-    customerID.setText("CS002");
-    searchCust.doClick();
-    String originalPID = passportID.getText();
+
+    customerID = (JTextField)TestUtils.getChildNamed(searchCustomer, "customerID");
+    searchCust = (JButton)TestUtils.getChildNamed(searchCustomer, "searchCust");
+    passportID = (JTextField)TestUtils.getChildNamed(searchCustomer, "passportID");
+    updateCust = (JButton)TestUtils.getChildNamed(searchCustomer, "updateCust");
+
+    customerID.setText("CS002"); // Jim Jones - passport id: 433
+    searchCust.doClick(); // Click search button
+
+    originalPID = passportID.getText();
+
+    // update passport text
     passportID.setText(testString);
-    updateCust.doClick();
+    expResult = testString;
+
+    updateCust.doClick(); // Click update button
 
     try {
       Class.forName("com.mysql.jdbc.Driver");
-      this.con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
-      this.pst = this.con.prepareStatement("select * from customer where id = ?");
-      this.pst.setString(1, customerID.getText());
-      ResultSet rs = this.pst.executeQuery();
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
+      pst = con.prepareStatement("select * from customer where id = ?");
+      pst.setString(1, customerID.getText());
+      ResultSet rs = pst.executeQuery();
+
       String passport = rs.getString("passport");
+
       testResult = passport;
-    } catch (SQLException var12) {
-      Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, (String)null, var12);
+
+    } catch (SQLException ex) {
+      Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
 
-    Assertions.assertEquals(testString, testResult);
+    assertEquals(expResult, testResult);
+
+    // Return initial values after test
     passportID.setText(originalPID);
     updateCust.doClick();
   }

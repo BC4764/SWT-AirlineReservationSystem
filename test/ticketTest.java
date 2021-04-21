@@ -211,4 +211,15 @@ class ticketTest {
     customerID.setText("invalid");
     assertDoesNotThrow(() -> searchCust.doClick());
   }
+
+  @Test
+  void cancelButtonTest() {
+
+    ticket ticketOb = new ticket();
+
+    JButton cancel = (JButton) TestUtils.getChildNamed(ticketOb, "closeTicket");
+
+    cancel.doClick();
+
+  }
 }

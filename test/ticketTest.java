@@ -155,6 +155,7 @@ class ticketTest {
       pst = con.prepareStatement("select * from ticket where id = ?");
       pst.setString(1, ticketID);
       ResultSet rs = pst.executeQuery();
+      rs.next();
 
       String pulledFlight = rs.getString("flightid");
       String pulledCust = rs.getString("custid");

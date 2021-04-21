@@ -83,11 +83,12 @@ class userCreationTest {
 
         // Save userID
         tempUserID = userID.getText();
+        System.out.println(tempUserID);
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
-            pst = con.prepareStatement("select * from user where firstname = ?");
+            pst = con.prepareStatement("select * from user where id = ?");
             pst.setString(1, tempUserID);
             ResultSet rs = pst.executeQuery();
 

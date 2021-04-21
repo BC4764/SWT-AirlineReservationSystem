@@ -13,8 +13,6 @@ import java.util.logging.Logger;
 
 class userCreationTest {
     Connection con;
-    Statement statement;
-    ResultSet rs;
     PreparedStatement pst;
 
     @Test
@@ -55,25 +53,6 @@ class userCreationTest {
 
     }
 
-    @Test
-    void initComponents() {
-
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
-            statement = con.createStatement();
-            rs = statement.executeQuery("select firstname from user");
-            while (rs.next()) {
-                if (rs == null) {
-                    System.out.println("Firstname: " + rs.getString("firstname"));
-                }
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(userCreation.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
 
     @Test
     void validUserCreation() {

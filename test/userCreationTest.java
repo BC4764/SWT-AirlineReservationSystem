@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.JLabel;
 import java.sql.*;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -132,7 +131,7 @@ class userCreationTest {
     }
 
     @Test
-    void cancelButtonTest(){
+    void cancelButtonTest() {
 
         userCreation userOb = new userCreation();
 

@@ -22,8 +22,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
@@ -41,7 +44,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
      */
     public searchCustomer() {
         initComponents();
-
+        setComponentNames();
     }
     private Connection connection;
     private PreparedStatement preparedStatement;
@@ -539,6 +542,13 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    void setComponentNames() {
+        txtcustid.setName("customerID");
+        jButton4.setName("searchCust");
+        txtpassport.setName("passportID");
+        jButton2.setName("updateCust");
+        txtphoto.setName("photoLabel");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

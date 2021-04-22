@@ -22,6 +22,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
@@ -40,6 +41,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
   public addCustomer() {
     initComponents();
     autoID();
+    setComponentNames();
   }
 
   Connection con;
@@ -502,6 +504,22 @@ public class addCustomer extends javax.swing.JInternalFrame {
     this.hide();
   }//GEN-LAST:event_jButton3ActionPerformed
 
+
+  void setComponentNames() {
+    jButton3.setName("cancel");
+    jButton2.setName("add");
+    jButton1.setName("findPhoto");
+    txtid.setName("custId");
+    r1.setName("maleButton");
+    r2.setName("femaleButton");
+    txtaddress.setName("address");
+    txtcontact.setName("contact");
+    txtfirstname.setName("first");
+    txtlastname.setName("last");
+    txtnic.setName("nic");
+    txtpassport.setName("passport");
+    txtDOB.setName("dob");
+  }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;

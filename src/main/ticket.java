@@ -142,7 +142,7 @@ public class ticket extends javax.swing.JInternalFrame {
 
                 },
                 new String[]{
-                        "utils.Flight No", "utils.Flight Name", "Source", "Departure", "Date", "DepTime", "ArrTime", "Charge"
+                        "Flight No", "Flight Name", "Source", "Departure", "Date", "DepTime", "ArrTime", "Charge"
                 }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,7 +158,7 @@ public class ticket extends javax.swing.JInternalFrame {
         txtticketno.setForeground(new java.awt.Color(255, 0, 0));
         txtticketno.setText("Ticket NO");
 
-        jLabel5.setText("utils.Customer ID");
+        jLabel5.setText("Customer ID");
 
         jLabel6.setText("FirstName");
 
@@ -233,7 +233,7 @@ public class ticket extends javax.swing.JInternalFrame {
                                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jLabel12.setText("utils.Flight no");
+        jLabel12.setText("Flight no");
 
         jLabel13.setText("Filght Name");
 

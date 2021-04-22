@@ -33,6 +33,24 @@ class LoginTest {
   }
 
   @Test
+  void blankLogin() {
+    Login loginTest;
+    JTextField testUsername;
+    JPasswordField testPassword;
+    JButton loginButton;
+
+    loginTest = new Login();
+
+    testUsername = (JTextField) TestUtils.getChildNamed(loginTest, "txtuser");
+    testPassword = (JPasswordField) TestUtils.getChildNamed(loginTest, "txtpass");
+    loginButton = (JButton) TestUtils.getChildNamed(loginTest, "login");
+
+    testUsername.setText("john");
+
+    assertDoesNotThrow(() -> loginButton.doClick());
+  }
+
+  @Test
   void validLogin() {
     Login loginTest;
     JTextField testUsername;

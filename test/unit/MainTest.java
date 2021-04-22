@@ -16,6 +16,11 @@ class MainTest {
   Main main = new Main();
 
   @Test
+  void mainTest(){
+    main.main(null);
+  }
+
+  @Test
   void clickAddCust() {
     JMenuItem addCust = (JMenuItem) TestUtils.getChildNamed(main, "addCust");
 

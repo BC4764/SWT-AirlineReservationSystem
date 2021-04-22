@@ -228,6 +228,11 @@ public class Main extends javax.swing.JFrame {
         jMenuItem4.setName("addFlight");
         jMenuItem5.setName("user");
         jMenuItem6.setName("report");
+
+        jMenu1.setName("custTab");
+        jMenu2.setName("ticketTab");
+        jMenu3.setName("flightTab");
+        jMenu4.setName("userTab");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

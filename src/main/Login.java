@@ -181,6 +181,8 @@ public class Login extends javax.swing.JFrame {
     private void setComponentNames(){
         txtpass.setName("txtpass");
         txtuser.setName("txtuser");
+        jLabel1.setName("userLabel");
+        jLabel2.setName("passLabel");
         jButton1.setName("login");
     }
     /**

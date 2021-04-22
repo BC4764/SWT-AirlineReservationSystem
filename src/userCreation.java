@@ -260,5 +260,13 @@ public class userCreation extends javax.swing.JInternalFrame {
     private javax.swing.JPasswordField txtpassword;
     private javax.swing.JLabel txtuserid;
     private javax.swing.JTextField txtusername;
+
+    public void setText(String string) {
+    }
+
+    public String getText() {
+        return null;
+    }
+
     // End of variables declaration//GEN-END:variables
 }

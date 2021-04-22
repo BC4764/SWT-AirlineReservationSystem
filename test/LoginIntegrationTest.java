@@ -29,13 +29,13 @@ class LoginTestIntegration {
     Connection con;
     PreparedStatement pst;
 
-
     Login testUsername = (Login)Mockito.mock(Login.class);
     Login testPassword = (Login)Mockito.mock(Login.class);
     testUsername.setText("rjumar");
     testPassword.setText("123");
     String username = testUsername.getText();
     String password = testPassword.getText();
+
 
     try {
       Class.forName("com.mysql.jdbc.Driver");

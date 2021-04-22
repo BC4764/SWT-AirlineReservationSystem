@@ -189,6 +189,7 @@ public class Login extends javax.swing.JFrame {
     private void setComponentNames(){
         txtpass.setName("txtpass");
         txtuser.setName("txtuser");
+        jButton1.setName("login");
     }
     /**
      * @param args the command line arguments

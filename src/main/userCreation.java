@@ -222,7 +222,6 @@ public class userCreation extends javax.swing.JInternalFrame {
                 id++;
                 txtuserid.setText("UO" + String.format("%03d", id));
 
-
             }
 
 

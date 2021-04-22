@@ -11,7 +11,13 @@ import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import main.Main;
+import main.addflight;
+import main.ticket;
+import main.ticketreport;
+import main.userCreation;
 import org.junit.jupiter.api.Test;
+import utils.TestUtils;
 
 public class performanceTests {
 

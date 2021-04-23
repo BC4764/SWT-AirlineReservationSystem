@@ -25,7 +25,8 @@ class LoginTestIntegration {
   }
 
   /**
-   *
+   *This test is used to create a mock class of the login class and testing to see
+   * if the login operates as it should.
    */
   @Test
   public void jButton1ActionPerformed() {

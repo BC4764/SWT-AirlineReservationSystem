@@ -19,7 +19,10 @@ public class userCreationIntergration {
 
     void userCreation() {
     }
-
+/**This test is used as a mock to see if the mocked class of
+ * userCreation will still perform as usual
+ * with predefined inputs in place
+ * */
     @Test
     public void jButton1ActionPerformed() {
         Connection con;

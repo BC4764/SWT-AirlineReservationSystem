@@ -17,7 +17,11 @@ public class MockDB {
   private DB mockDatabase;
   private main.searchCustomer searchCustomer;
   private PreparedStatement preparedStatement;
-
+/**This test creates a mock Database with predefined
+ * information already in place and then tests to see
+ * if it still allows a customer input to go through with the
+ * wrong inputs in the wrong locations
+ * */
   @Before
   public void setUp() {
     mockDatabase = mock(DB.class);

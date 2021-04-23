@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import utils.TestUtils;
 
 class LoginTest {
-
+/**test used to test when an invalid input is entered the login screen*/
   @Test
   void invalidLogin() {
     Login loginTest;
@@ -31,7 +31,7 @@ class LoginTest {
 
     assertDoesNotThrow(() -> loginButton.doClick());
   }
-
+/**test used when the login is left blank*/
   @Test
   void blankLogin() {
     Login loginTest;
@@ -49,7 +49,7 @@ class LoginTest {
 
     assertDoesNotThrow(() -> loginButton.doClick());
   }
-
+/**test used for login with the correct inputs*/
   @Test
   void validLogin() {
     Login loginTest;

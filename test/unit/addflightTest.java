@@ -25,6 +25,10 @@ class addflightTest {
   Connection con;
   addflight af = new addflight();
 
+  /**
+   * This test is used to see if the automated ID in the application
+   * is correctly appearing for addFlight class
+   * */
   @Test
   void autoID() {
     JLabel inputTest;
@@ -60,7 +64,7 @@ class addflightTest {
 
     assertEquals(expResult, inputTest.getText());
   }
-
+/**tests to see if it was successfully added*/
   @Test
   void successAdd() {
     String[] sources = new String[]{"India", "Srilanka", "Uk", "Usa", "Canada", "China"};

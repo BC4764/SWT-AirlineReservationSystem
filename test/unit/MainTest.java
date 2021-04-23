@@ -9,6 +9,7 @@ import utils.TestUtils;
 
 /**
  * @author Benjamin Cano
+ * All the tests just make sure the buttons are operational
  */
 
 class MainTest {

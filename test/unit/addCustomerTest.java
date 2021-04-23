@@ -24,7 +24,10 @@ class addCustomerTest {
 
   addCustomer ac = new addCustomer();
   Connection con;
-
+/**
+ * This test is used to see if the automated ID in the application
+ * is correctly appearing for addCustomer
+ * */
   @Test
   void autoID() {
     JLabel inputTest;
@@ -60,21 +63,22 @@ class addCustomerTest {
 
     assertEquals(expResult, inputTest.getText());
   }
-
+/**checks to see if the button successfully cancels*/
   @Test
   void successCancel() {
     JButton cancelButton = (JButton) TestUtils.getChildNamed(ac, "cancel");
 
     assertDoesNotThrow(() -> cancelButton.doClick());
   }
-
+/**makes the user look for an image this test makes sure that
+ * the user can look for an image when running the program*/
   @Test
   void findImage() {
     JButton findButton = (JButton) TestUtils.getChildNamed(ac, "findPhoto");
 
     assertDoesNotThrow(() -> findButton.doClick());
   }
-
+/**Next two tests makes sure that a male and female can be successfully added*/
   @Test
   void addSuccessMale() {
     JButton addButton = (JButton) TestUtils.getChildNamed(ac, "add");

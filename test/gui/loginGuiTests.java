@@ -11,10 +11,14 @@ import org.assertj.swing.junit.testcase.AssertJSwingJUnitTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
+/**
+ * All of the following tests in this class are GUI Tests done on
+ *    the login page.
+ */
 public class loginGuiTests extends AssertJSwingJUnitTestCase {
   private FrameFixture window;
   JDesktopPane pane;
+
 
   @BeforeEach
   @Override
@@ -29,6 +33,11 @@ public class loginGuiTests extends AssertJSwingJUnitTestCase {
     window.show();
   }
 
+  /**
+   * Checks that the login was valid.
+   * Compares to make sure both username and password
+   *  is a valid entry.
+   */
   @Test
   void checkValidLogin() {
     window.textBox("txtuser").setText("john");
@@ -38,6 +47,10 @@ public class loginGuiTests extends AssertJSwingJUnitTestCase {
 
   }
 
+  /**
+   * Checks that Login labels and buttons are
+   *  correct.
+   */
   @Test
   void checkTextLogin() {
     window.label("userLabel").requireText("UserName");

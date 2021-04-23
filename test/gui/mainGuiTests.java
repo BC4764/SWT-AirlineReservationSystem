@@ -7,6 +7,10 @@ import org.assertj.swing.junit.testcase.AssertJSwingJUnitTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Class contains all GUI tests done
+ *  on the Main page of the program.
+ */
 public class mainGuiTests extends AssertJSwingJUnitTestCase {
   private FrameFixture window;
 
@@ -18,12 +22,19 @@ public class mainGuiTests extends AssertJSwingJUnitTestCase {
     window.show();
   }
 
+  /**
+   * Checks that when menuItem is clicked the screen refreshes.
+   */
   @Test
   void customerTab() {
     window.menuItem("custTab").click().requireVisible();
     window.cleanUp();
   }
 
+  /**
+   * Checks when clicking the addCustomer button
+   *  that it does refresh the screen.
+   */
   @Test
   void addCustomerOpenSuccess() {
     window.menuItem("custTab").click().requireVisible();
@@ -31,6 +42,10 @@ public class mainGuiTests extends AssertJSwingJUnitTestCase {
     window.cleanUp();
   }
 
+  /**
+   * Checks when Searching for customer
+   *  and button is clicked window is refreshed.
+   */
   @Test
   void searchCustomerOpenSuccess() {
     window.menuItem("custTab").click().requireVisible();
@@ -38,12 +53,20 @@ public class mainGuiTests extends AssertJSwingJUnitTestCase {
     window.cleanUp();
   }
 
+  /**
+   * Checks once the Ticket button is clicked
+   *  that a new window is then refreshed.
+   */
   @Test
   void ticketTab() {
     window.menuItem("ticketTab").click().requireVisible();
     window.cleanUp();
   }
 
+  /**
+   * Once in the Ticket tab checks that clicking
+   *  the button refreshes the window.
+   */
   @Test
   void bookTicketOpenSuccess() {
     window.menuItem("ticketTab").click().requireVisible();

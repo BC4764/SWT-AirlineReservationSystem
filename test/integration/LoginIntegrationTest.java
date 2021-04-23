@@ -24,6 +24,9 @@ class LoginTestIntegration {
   LoginTestIntegration() {
   }
 
+  /**
+   *
+   */
   @Test
   public void jButton1ActionPerformed() {
     Connection con;
